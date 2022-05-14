@@ -1,0 +1,18 @@
+---
+- hosts: all
+  vars_files:
+    - host_vars/crawler-vars.yaml
+  gather_facts: true
+  vars:
+    - ansible_user: ubuntu
+    - ansible_ssh_private_key_file: ~/.ssh/test01privatekey.pem
+    - ansible_ssh_common_args: '-o StrictHostKeyChecking=no'
+  roles:
+      - role: common
+      - role: remove-previous-image
+      - role: docker-login
+        when: '{{ ansible_default_ipv4.address }}' in Hosts_with_crawler'
+      - role: docker-pull-and-run
+        when: '{{ ansible_default_ipv4.address }}' in Hosts_with_crawler'
+      - role: docker-logout
+        when: '{{ ansible_default_ipv4.address }}' in Hosts_with_crawler'

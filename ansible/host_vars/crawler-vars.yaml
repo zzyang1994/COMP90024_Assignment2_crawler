@@ -1,0 +1,9 @@
+# Common vars
+Hosts_with_crawler: ['115.146.95.1','115.146.95.136']
+
+# Docker vars
+dockerhub_username: zzyang1994
+dockerhub_token: 651bc8ae-1e36-4e88-a112-868599ad9908
+dockerhub_email: yangzhanzhao1994@gmail.com
+docker_image: zzyang1994/cccproj2:crawler
+

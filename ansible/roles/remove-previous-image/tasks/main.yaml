@@ -3,7 +3,7 @@
 - name: remove container
   become: true
   docker_container:
-    name: backend
+    name: crawler
     state: absent
 
 - name: remove image
