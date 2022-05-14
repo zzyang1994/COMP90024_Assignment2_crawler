@@ -1,5 +1,5 @@
 # Common vars
-Hosts_with_crawler: ['115.146.95.1','115.146.95.136']
+hosts_with_crawler: ['115.146.95.1','115.146.95.136']
 
 # Docker vars
 dockerhub_username: zzyang1994

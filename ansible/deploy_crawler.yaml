@@ -11,8 +11,8 @@
       - role: common
       - role: remove-previous-image
       - role: docker-login
-        when: '{{ ansible_default_ipv4.address }}' in Hosts_with_crawler'
+        when: '"{{ ansible_default_ipv4.address }}" in hosts_with_crawler'
       - role: docker-pull-and-run
-        when: '{{ ansible_default_ipv4.address }}' in Hosts_with_crawler'
+        when: '"{{ ansible_default_ipv4.address }}" in hosts_with_crawler'
       - role: docker-logout
-        when: '{{ ansible_default_ipv4.address }}' in Hosts_with_crawler'
+        when: '"{{ ansible_default_ipv4.address }}" in hosts_with_crawler'
