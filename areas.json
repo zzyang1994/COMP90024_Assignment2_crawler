@@ -1,0 +1,145 @@
+{
+    "lists":
+    [
+        {
+            "suburb": "Wyndham",
+            "city": "Melbourne",
+            "longitude": 144.629690349554,
+            "latitude": -37.89289485,
+            "area": 559.571
+        },
+        {
+            "suburb": "Melton",
+            "city": "Melbourne",
+            "longitude": 144.635894093768,
+            "latitude": -37.681895,
+            "area": 543.411
+        },
+        {
+            "suburb": "Casey",
+            "city": "Melbourne",
+            "longitude": 145.310843428592,
+            "latitude": -38.092765,
+            "area": 415.158
+        },
+        {
+            "suburb": "Hume",
+            "city": "Melbourne",
+            "longitude": 144.823538850211,
+            "latitude": -37.59706,
+            "area": 519.209
+        },
+        {
+            "suburb": "Cardinia",
+            "city": "Melbourne",
+            "longitude": 145.567817916667,
+            "latitude": -38.094895,
+            "area": 1341.857
+        },
+        {
+            "suburb": "Maribyrnong",
+            "city": "Melbourne",
+            "longitude": 144.874426186247,
+            "latitude": -37.79163,
+            "area": 32.371
+        },
+        {
+            "suburb": "Frankston",
+            "city": "Melbourne",
+            "longitude": 145.174443611654,
+            "latitude": -38.1349849,
+            "area": 135.093
+        },
+        {
+            "suburb": "Whittlesea",
+            "city": "Melbourne",
+            "longitude": 145.062088830645,
+            "latitude": -37.5509,
+            "area": 506.123
+        },
+        {
+            "suburb": "Brimbank",
+            "city": "Melbourne",
+            "longitude": 144.805245490836,
+            "latitude": -37.743175,
+            "area": 127.456
+        },
+        {
+            "suburb": "Yarra",
+            "city": "Melbourne",
+            "longitude": 144.986540472402,
+            "latitude": -37.80507,
+            "area": 20.244
+        },
+        {
+            "suburb": "Whitehorse",
+            "city": "Melbourne",
+            "longitude": 145.156434400288,
+            "latitude": -37.8285963,
+            "area": 66.799
+        },
+        {
+            "suburb": "Stonnington",
+            "city": "Melbourne",
+            "longitude": 145.03914073484,
+            "latitude": -37.8613851,
+            "area": 26.581
+        },
+        {
+            "suburb": "Melbourne",
+            "city": "Melbourne",
+            "longitude": 144.948066591404,
+            "latitude": -37.81403,
+            "area": 38.958
+        },
+        {
+            "suburb": "Port Phillip",
+            "city": "Melbourne",
+            "longitude": 144.5859,
+            "latitude": -37.5131,
+            "area": 21.443
+        },
+        {
+            "suburb": "Banyule",
+            "city": "Melbourne",
+            "longitude": 145.086813255711,
+            "latitude": -37.7338761,
+            "area": 64.789
+        },
+        {
+            "suburb": "Glen Eira",
+            "city": "Melbourne",
+            "longitude": 145.041026045736,
+            "latitude": -37.898995,
+            "area": 40.137
+        },
+        {
+            "suburb": "Moonee Valley",
+            "city": "Melbourne",
+            "longitude": 144.88748113173,
+            "latitude": -37.749525,
+            "area": 44.538
+        },
+        {
+            "suburb": "Boroondara",
+            "city": "Melbourne",
+            "longitude": 145.340,
+            "latitude": -37.4937,
+            "area": 62.365
+        },
+        {
+            "suburb": "Manningham",
+            "city": "Melbourne",
+            "longitude": 145.117,
+            "latitude": -37.4525,
+            "area": 117.672
+        },
+        {
+            "suburb": "Bayside",
+            "city": "Melbourne",
+            "longitude": 145.017752562162,
+            "latitude": -37.93978075,
+            "area": 38.787
+        }
+    ]
+}

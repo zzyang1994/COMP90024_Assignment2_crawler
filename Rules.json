@@ -1,0 +1,21 @@
+{
+"transportationxm":
+    {
+    "q1": "traffic OR congestion OR clog OR clogged OR #traffic OR #congestion",
+    "q2": "\"car crash\" OR \"traffic accident\" OR \"car incident\" OR \"road accident\" OR \"car accident\" OR \"hit by car\" OR #trafficaccident OR #carcrash OR #carincident",
+    "q3": "pt OR transportation OR tram OR train OR metro OR bus OR vline OR (#publictransportation) OR (#pt) OR (@ptv_offical) OR (from:@ptv_offical)"
+    },
+
+ "healthxm":
+    {
+    "q1": "smoking OR tobacco OR cigarret OR #smoking OR #cigarret OR #tobacco",
+    "q2": "obesity OR fat OR overweight OR body weight OR overeat OR (#obesity) OR (#overweight) OR (#fat) (#overeat)",
+    "q3": "\"junk food\" OR burger OR chips OR cola OR McDonald’s OR KFC OR \"Burger King\" OR \"Domino's\" OR \"ice cream\" OR \"fried chicken\" OR cake OR chocolate OR pizza",
+    "q4": "exercise OR gym OR \"Fitness First\" OR \"Anytime Fitness\" OR #fitnessfirst OR #anytimefitness OR @FitnessFirstAU OR @AnytimeFitness",
+    "q5": "disease OR chronic OR cardiovascular OR \"heart stroke\" OR \"heart attack\" OR \"dental health\" OR osteoporosis OR arthritis OR cancer OR cancers OR respiratory OR ashmar OR diabetes",
+    "q6": "health OR healthy OR unhealth OR unhealthy OR #health OR #healthy OR diet"
+    }
+
+}
+
+
