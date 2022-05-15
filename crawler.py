@@ -214,12 +214,15 @@ def get_data(consumer_key, consumer_secret, access_token, access_secret, suburb_
 def add_views_to_db():
     couch = couchdb.Server(couchDB_server)
     db_names = ['transportationxm_live', 'healthxm_live', 'transportationxm_historical', 'healthxm_historical']
+    dbs = []
     for db_name in db_names:
         try:
             db = couch.create(db_name)
         except Exception as e:
             print(e)
             pass
+        db = couch[db_name]
+        dbs.append(db)
 
     designs = []
     view_names = []
@@ -331,11 +334,10 @@ def add_views_to_db():
     }})
     view_names.append("_design/tweets_geo")
 
-    for db_name in db_names:
+    for db in dbs:
         for i in range(len(designs)):
-            couch_path = db_name + '/' + view_names[i]
             try:
-                couch[couch_path] = designs[i]
+                db[view_names[i]] = designs[i]
             except:
                 print('already exist')
 
@@ -347,7 +349,7 @@ if __name__ == "__main__":
     auth.append("1519264824890298369-h5a92GpBRgifQNtsTOMQObeBCnznep")# access token
     auth.append("c8OJqjDz6pzkwCVF3fnpkYGhUt9woizJK39BzkeRlGQCE")# access secret
 
-    add_views_to_db();
+    add_views_to_db()
 
     with open(AREAPATH, 'r') as f:
         areas = json.load(f)
