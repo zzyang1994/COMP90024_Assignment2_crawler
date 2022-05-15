@@ -1,6 +1,5 @@
 from concurrent.futures import ThreadPoolExecutor
 from datetime import datetime
-from tkinter import E
 import couchdb
 from twarc import Twarc
 import json
