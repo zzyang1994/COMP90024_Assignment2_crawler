@@ -403,3 +403,5 @@ if __name__ == "__main__":
         except BaseException:
             print("cannot start threads")
             raise
+
+    print('crawler ended')
