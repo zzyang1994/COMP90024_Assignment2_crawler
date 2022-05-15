@@ -168,8 +168,12 @@ def saveData(tweets, tweets_process, db):
 
 def get_data(consumer_key, consumer_secret, access_token, access_secret, suburb_lst, db, finder, tr):
     print("get_data executed")
-    t = Twarc(consumer_key, consumer_secret, access_token, access_secret)  # initialize twarc
-    addresssearcher = subfinder.subfinder()
+    try:
+        t = Twarc(consumer_key, consumer_secret, access_token, access_secret)  # initialize twarc
+        addresssearcher = subfinder.subfinder()
+    except Exception as e:
+        print("cannot initialize twarc or twarc", e)
+        return
     while (True):
         print("start getting data..")
         for index, suburb in enumerate(suburb_lst):
