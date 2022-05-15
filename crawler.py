@@ -246,7 +246,7 @@ def add_views_to_db():
     # function to get the tweet counts in suburbs by indicators
     map_fun2 = '''function(doc) {
         if (doc.city == 'Melbourne') {
-            emit([doc.suburb, doc.related_to], 1);
+            emit([doc.suburb, doc['Related to']], 1);
         }
     }
     '''
@@ -294,7 +294,7 @@ def add_views_to_db():
 
     # function to get the tweet counts for suburbs by indicators (for bar chart)
     map_fun5 = '''function(doc) {
-        emit([doc.suburb, doc.related_to], 1);
+        emit([doc.suburb, doc['Related to']], 1);
     }
     '''
     reduce_fun5 = "_count"
