@@ -233,6 +233,139 @@ def get_data(consumer_key, consumer_secret, access_token, access_secret, suburb_
                     pass
             time.sleep(60 * 5)
 
+def add_views_to_db():
+    couch = couchdb.Server(couchDB_server)
+    db_names = ['transportationxm_live', 'healthxm_live', 'transportationxm_historical', 'healthxm_historical']
+    dbs = []
+    for db_name in db_names:
+        try:
+            db = couch.create(db_name)
+        except Exception as e:
+            print(e)
+            pass
+        db = couch[db_name]
+        dbs.append(db)
+
+    designs = []
+    view_names = []
+
+    # function to get suburb names
+    map_fun1 = '''function(doc) {
+        if (doc.city == 'Melbourne') {
+            emit(doc.suburb, 1);
+        }
+    }
+    '''
+    reduce_fun1 = "_count"
+    designs.append({'views': {
+        'get_city': {
+            'map': map_fun1,
+            'reduce': reduce_fun1
+        }
+    }})
+    view_names.append('_design/suburbs')
+
+    # function to get the tweet counts in suburbs by indicators
+    map_fun2 = '''function(doc) {
+        if (doc.city == 'Melbourne') {
+            emit([doc.suburb, doc['Related to']], 1);
+        }
+    }
+    '''
+    reduce_fun2 = "_count"
+    designs.append({'views': {
+        'indicator': {
+            'map': map_fun2,
+            'reduce': reduce_fun2
+        }
+    }})
+    view_names.append('_design/tweet_count_by_indicator')
+
+    # function to calculate the sentiment index of suburbs by date
+    map_fun3 = '''function(doc) {
+        emit([doc.suburb, doc.created_at_year, doc.created_at_month, doc.created_at_day], doc.importance);
+    }
+    '''
+    reduce_fun3 = "_sum"
+    designs.append({'views': {
+        'daily': {
+            'map': map_fun3,
+            'reduce': reduce_fun3
+        }
+    }})
+    view_names.append('_design/daily_count')
+
+    # function to Word Cloud
+    map_fun4 = '''function(doc) {
+      var list = doc.text_cleaned.split(" ");
+      list.map(v => {
+        if (v) {
+          emit([doc.suburb, v], 1); 
+        }
+      })
+    }
+    '''
+    reduce_fun4 = "_count"
+    designs.append({'views': {
+        'textDetail': {
+            'map': map_fun4,
+            'reduce': reduce_fun4
+        }
+    }})
+    view_names.append('_design/text')
+
+    # function to get the tweet counts for suburbs by indicators (for bar chart)
+    map_fun5 = '''function(doc) {
+        emit([doc.suburb, doc['Related to']], 1);
+    }
+    '''
+    reduce_fun5 = "_count"
+    designs.append({'views': {
+        'counts': {
+            'map': map_fun5,
+            'reduce': reduce_fun5
+        }
+    }})
+    view_names.append('_design/tweet_count')
+
+    # function to map data scenario 1 (scatter)
+    map_fun6 = '''function(doc) {
+        emit([doc.longitude, doc.latitude], [doc.importance, doc.sentiments, doc.created_at_year, doc.created_at_month, doc.created_at_day]);
+    }
+    '''
+    reduce_fun6 = "_count"
+    designs.append({'views': {
+        'info': {
+            'map': map_fun6,
+            'reduce': reduce_fun6
+        }
+    }})
+    view_names.append('_design/tweets')
+
+    # function to map data scenario 2 (geometry)
+    map_fun7 = '''function(doc) {
+        emit(doc.suburb, [1, doc.importance, doc.sentiments]);
+    }
+    '''
+    reduce_fun7 = "_sum"
+    designs.append({'views': {
+        'info': {
+            'map': map_fun7,
+            'reduce': reduce_fun7
+        }
+    }})
+    view_names.append("_design/tweets_geo")
+
+    for db in dbs:
+        for i in range(len(designs)):
+            try:
+                db[view_names[i]] = designs[i]
+                print('added view to ' + db.name)
+            except:
+                print('already exist')
+                continue
+            time.sleep(5)
+
 
 if __name__ == "__main__":
     auth = [[], []]
@@ -244,6 +377,9 @@ if __name__ == "__main__":
     auth[1].append("lFKGDdLEWCBlsfq798ODxuS9eBHRORff8kkQEZElNcyONVaJin")  # api secret
     auth[1].append("1519264824890298369-h5a92GpBRgifQNtsTOMQObeBCnznep")  # access token
     auth[1].append("c8OJqjDz6pzkwCVF3fnpkYGhUt9woizJK39BzkeRlGQCE")  # access secret
+
+    add_views_to_db()
+
     with open(AREAPATH, 'r') as f:
         areas = json.load(f)
         suburb_lst = list()
