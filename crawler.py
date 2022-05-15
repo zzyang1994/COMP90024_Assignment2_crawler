@@ -82,7 +82,7 @@ def get_address(tweets, addresssearcher):
         city = "Greater Melbourne"  # geoinfo["city"]
         address = {"city": city, "suburb": town, 'coordinates': coordinate}
         return address
-    except Exception:
+    except Exception as e:
         print("cannot correctly return address", e)
         return {
             "city": "In the Sea or Unknown area",
@@ -377,7 +377,7 @@ if __name__ == "__main__":
     auth[1].append("1519264824890298369-h5a92GpBRgifQNtsTOMQObeBCnznep")  # access token
     auth[1].append("c8OJqjDz6pzkwCVF3fnpkYGhUt9woizJK39BzkeRlGQCE")  # access secret
 
-    add_views_to_db()
+    # add_views_to_db()
 
     with open(AREAPATH, 'r') as f:
         areas = json.load(f)
