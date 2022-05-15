@@ -354,7 +354,10 @@ if __name__ == "__main__":
 
     add_views_to_db()
 
+    print("add views done")
+
     with open(AREAPATH, 'r') as f:
+        print("fetching data...")
         areas = json.load(f)
         suburb_lst = list()
         for area in areas["lists"]:
