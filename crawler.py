@@ -343,6 +343,8 @@ def add_views_to_db():
                 db[view_names[i]] = designs[i]
             except:
                 print('already exist')
+                continue
+            sleep(5)
 
 
 if __name__ == "__main__":
