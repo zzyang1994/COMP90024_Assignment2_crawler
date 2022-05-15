@@ -337,6 +337,9 @@ def add_views_to_db():
     for db in dbs:
         for i in range(len(designs)):
             try:
+                print("Creating view: " + view_names[i])
+                print(designs[i])
+                print(db)
                 db[view_names[i]] = designs[i]
             except:
                 print('already exist')
