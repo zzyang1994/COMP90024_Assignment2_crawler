@@ -2,6 +2,10 @@ CouchDB==1.2
 geopy==2.2.0
 matplotlib==3.5.2
 nltk==3.7
+numpy==1.22.3
+osmnx==1.1.2
 pandas==1.4.2
 requests==2.27.1
+subfinder==2.2.1
 textblob==0.17.1
+twarc==2.10.4
