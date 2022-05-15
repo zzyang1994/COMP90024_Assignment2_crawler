@@ -16,7 +16,7 @@ nltk.download('stopwords')
 
 
 AREAPATH = "areas.json"
-couchDB_server = 'http://admin:password@115.146.95.136:5984/' 
+couchDB_server = 'http://admin:password@115.146.95.1:5984/'
 STOPWORDS = stopwords.words()
 
 
