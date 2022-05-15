@@ -4,4 +4,5 @@
   docker_container:
     image: '{{ docker_image }}'
     name: crawler
+    published_ports: 5000:5000
 
