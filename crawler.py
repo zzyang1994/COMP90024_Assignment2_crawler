@@ -400,7 +400,12 @@ if __name__ == "__main__":
         try:
             with ThreadPoolExecutor(max_workers=2) as pool:
                 for index, tr in enumerate(track):
-                    pool.submit(get_data, auth[index][0], auth[index][1], auth[index][2], auth[index][3], suburb_lst, db_arr[index], finder, tr)
+                    try:
+                        pool.submit(get_data, auth[index][0], auth[index][1], auth[index][2], auth[index][3], suburb_lst, db_arr[index], finder, tr)
+                        print("Thread " + str(index) + " started")
+                    except Exception as e:
+                        print(e)
+                        continue
         except BaseException:
             print("cannot start threads")
             raise
