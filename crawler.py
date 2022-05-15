@@ -370,6 +370,7 @@ if __name__ == "__main__":
 
         track = [[], []]
         for key in finder.query_dict:
+            print("fetching data2...")
             tmp = key.split(":")
             if tmp[0] == "Query_Transportation":
                 track[0] = track[0] + finder.query_dict[key]
@@ -377,7 +378,9 @@ if __name__ == "__main__":
                 track[1] = track[1] + finder.query_dict[key]
         try:
             with ThreadPoolExecutor(max_workers=2) as pool:
+                print("fetching data3...")
                 for index, tr in enumerate(track):
+                    print("fetching data4...")
                     pool.submit(get_data, auth[0], auth[1], auth[2], auth[3], suburb_lst, db_arr[index], finder, tr)
         except BaseException:
             print("cannot start threads")
