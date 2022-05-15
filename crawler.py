@@ -170,6 +170,7 @@ def get_data(consumer_key, consumer_secret, access_token, access_secret, suburb_
     t = Twarc(consumer_key, consumer_secret, access_token, access_secret)  # initialize twarc
     addresssearcher = subfinder.subfinder()
     while (True):
+        print("start getting data..")
         for index, suburb in enumerate(suburb_lst):
             if index <= 1:
                 continue
@@ -403,5 +404,3 @@ if __name__ == "__main__":
         except BaseException:
             print("cannot start threads")
             raise
-
-    print('crawler ended')
