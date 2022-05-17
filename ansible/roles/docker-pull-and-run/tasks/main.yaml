@@ -1,5 +1,5 @@
 ---
-- name: Pull docker frontend image and run
+- name: Pull docker crawler image and run
   become: true
   docker_container:
     image: '{{ docker_image }}'
